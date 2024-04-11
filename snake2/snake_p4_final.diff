@@ -1,0 +1,22 @@
+30a31
+> snake_list=[]
+43a45,48
+> def draw_snake(snake_list):
+>     for x,y in snake_list:
+>         pygame.draw.rect(dis, blue, [x, y, snake_block, snake_block])    
+> 
+75c80
+< 
+---
+>            
+80c85,92
+<     pygame.draw.rect(dis, blue, [x1, y1, snake_block, snake_block])
+---
+>         if [x1,y1] in snake_list and (x1_change!=0 or y1_change!=0):
+>             game_over = True
+>         else:
+>             snake_list.append([x1,y1])
+>             if len(snake_list) > snake_length:
+>                 del snake_list[0]
+> 
+>     draw_snake(snake_list)
