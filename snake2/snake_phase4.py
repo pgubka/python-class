@@ -27,7 +27,7 @@ x1 = width/2
 y1 = hight/2
 x1_change = 0       
 y1_change = 0
-snake_length=0
+snake_length=1
  
 #fruit
 def new_fruit():
@@ -38,7 +38,7 @@ clock = pygame.time.Clock()
 
 def show_score():
     font = pygame.font.Font(pygame.font.get_default_font(), 36)
-    score_text = font.render('Your score: {}'.format(snake_length), True, black)
+    score_text = font.render('Your score: {}'.format(snake_length-1), True, black)
     dis.blit(score_text, dest=(0,0))
 
 while not game_close:
