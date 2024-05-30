@@ -101,7 +101,12 @@ class Tetris:
                     if cell == 'O':
                         pygame.draw.rect(screen, self.current_piece.color, ((self.current_piece.x + j) * GRID_SIZE, (self.current_piece.y + i) * GRID_SIZE, GRID_SIZE - 1, GRID_SIZE - 1))
 
-
+def draw_game_over(screen, x, y):
+    """Draw the game over text on the screen"""
+    font = pygame.font.Font(None, 48)
+    text = font.render("Game Over", True, RED)
+    screen.blit(text, (x, y))
+    
 def main():
 
     pygame.init()
