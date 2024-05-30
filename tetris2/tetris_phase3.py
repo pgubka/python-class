@@ -70,8 +70,8 @@ class Tetris:
                 if cell == 'O':
                     self.grid[piece.y + i][piece.x + j] = piece.color
         # Clear the lines and update the score
-        lines_cleared = self.clear_lines()
-        self.score += lines_cleared * 100  # Update the score based on the number of cleared lines
+        #lines_cleared = self.clear_lines()
+        #self.score += lines_cleared * 100  # Update the score based on the number of cleared lines
         # Create a new piece
         self.current_piece = self.new_piece()
 
