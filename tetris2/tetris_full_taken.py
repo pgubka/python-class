@@ -146,6 +146,20 @@ class Tetris:
                 self.grid.insert(0, [0 for _ in range(self.width)])
         return lines_cleared
 
+    def clear_lines2(self):
+        cleared=0
+        clearing=True
+        while clearing:
+            clearing=False
+            for i,line in enumerate(self.grid):
+                if 0 not in line:
+                    del self.grid[i]
+                    cleared+=1
+                    clearing=True
+                    self.grid.insert(0,[0 for _ in range(self.width)] )
+                    break
+        return cleared
+        
     def lock_piece(self, piece):
         """Lock the piece in place and create a new piece"""
         for i, row in enumerate(piece.shape[piece.rotation % len(piece.shape)]):
