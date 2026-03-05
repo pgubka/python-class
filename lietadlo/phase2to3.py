@@ -1,6 +1,8 @@
 # Tasks todo:
 # - enable clouds
 # - make jet not to go outside borders
+# - handle jet-missile collision
+# - enable polite quite
 
 # Import the pygame module
 import pygame
@@ -125,6 +127,7 @@ pygame.time.set_timer(ADDENEMY, 250)
 #pygame.time.set_timer(ADDCLOUD, 1000)
 
 running = True
+#gameover = False
 while running:
     # Look at every event in the queue
     for event in pygame.event.get():
@@ -133,12 +136,14 @@ while running:
             # Was it the Escape key? If so, stop the loop
             if event.key == K_ESCAPE:
                 running = False
+                #gameover = True
             if event.key == K_a:
                 new_enemy = Enemy()
                 enemies.add(new_enemy)
         # Did the user click the window close button? If so, stop the loop
         if event.type == QUIT:
             running = False
+            #gameover = True
         if event.type == ADDENEMY:
             new_enemy = Enemy()
             enemies.add(new_enemy)
@@ -163,9 +168,24 @@ while running:
     #for cloud in clouds:
     #    screen.blit(cloud.surf, cloud.rect)
 
+    #if pygame.sprite.spritecollideany(player, enemies):
+    #    player.kill()
+    #    running = False
+
     # Flip everything to the display
     pygame.display.flip()
     clock.tick(30)
+
+#while not gameover:
+#    for event in pygame.event.get():
+#        # Did the user hit a key?
+#        if event.type == KEYDOWN:
+#            if event.key == K_ESCAPE:
+#                gameover = True
+#        if event.type == QUIT:
+#           gameover = True
+#
+#    clock.tick(30)
 
 # Done! Time to quit.
 pygame.quit()
